@@ -1,11 +1,11 @@
-import Persona
-import Deportista
+from persona import Persona
+from deportista import Deportista
 
 class Futbolista(Persona,Deportista):
     listaFutbolistas=[]
     def __init__(self,nombre,edad,altura,sexo,añosPracticando,golesMarcados,tarjetasRojas,piernaHabil,):
-        super().__init__(nombre,edad,altura,sexo)
-        super().__init__("Futbol",añosPracticando)
+        Persona.__init__(self,nombre,edad,altura,sexo)
+        Deportista.__init__(self,"Futbol",añosPracticando)
         self._golesMarcados=golesMarcados
         self._tarjetasRojas=tarjetasRojas
         self._piernaHabil=piernaHabil
@@ -28,7 +28,7 @@ class Futbolista(Persona,Deportista):
     
     def __str__(self):
         return (
-            f"Mi nombre es {self.nombre}, soy profesional en el deporte "
-            f"{self.deporte}. Tengo {self.edad} años de edad y llevo "
-            f"{self.añosParticipando} años en el deporte."
+            f"Mi nombre es {self._nombre} soy profesional en el deporte "
+            f"{self._deporte} Tengo {self._edad} años de edad y llevo "
+            f"{self._añosPracticando} años en el deporte"
         )
